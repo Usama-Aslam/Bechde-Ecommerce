@@ -2,7 +2,7 @@ var btnLogin=document.getElementById("log-in");
 var btnSignUp=document.getElementById("sign-up");
 var loginHeading=document.getElementById("login-box-heading");
 var signUpHeading=document.getElementById("signup-box-heading");
-var signUpFormDiv=document.getElementById("signup-form-div-child")
+var signUpFormDiv=document.getElementById("signup-form-div")
 var loginFormDiv=document.getElementById("login-form-div")
 var loginSignUpBtn=document.getElementById("login-signUpBtn")
 
@@ -13,8 +13,7 @@ btnSignUp.addEventListener('click',(event)=>{
     signUpFormDiv.style.position="static";
     loginFormDiv.style.position="absolute";
     signUpFormDiv.classList.add("slideInRight");
-    loginFormDiv.classList.remove("slideInLeft");
-    verifyDiv.classList.remove("slideInLeft");
+    loginHeading.classList.remove("slideInLeft");
 })
 
 /*modalbox login form and its animation */
@@ -24,7 +23,7 @@ btnLogin.addEventListener('click',(event)=>{
     signUpHeading.classList.remove("active");
     loginFormDiv.style.position="static";
     signUpFormDiv.style.position="absolute";
-    signUpFormDiv.classList.remove("slideInRight");
+    signUpHeading.classList.remove("slideInRight");
 })
 
 /*modalbox signup btn on login-form and its animation */
@@ -35,38 +34,22 @@ loginSignUpBtn.addEventListener("click",()=>{
     loginFormDiv.style.position="absolute";
     signUpFormDiv.classList.add("slideInRight");
     loginFormDiv.classList.remove('slideInLeft');
-    verifyDiv.classList.remove('slideInRight');
 })
 
 /*modalbox create button of signup form and its animation */
 var btnCreate=document.getElementById("btn-create");
-var verifyDiv=document.getElementById("verifyDiv");
 btnCreate.addEventListener('click',()=>{
-    verifyDiv.style.position="static";
+    loginFormDiv.classList.add('slideInLeft');
+    loginHeading.classList.add("active");
+    signUpHeading.classList.remove("active");
     signUpFormDiv.style.position="absolute";
-    loginFormDiv.style.position="absolute";
-    verifyDiv.classList.add("slideInRight");
+    loginFormDiv.style.position="static";
     signUpFormDiv.classList.remove("slideInRight");
-    loginFormDiv.classList.remove("slideInLeft");
-   
 })
-var btnContinue=document.getElementById("btn-continue");
-btnContinue.addEventListener('click',()=>{
-        loginFormDiv.classList.add('slideInLeft');
-        loginHeading.classList.add("active");
-        signUpHeading.classList.remove("active");
-        signUpFormDiv.style.position="absolute";
-        verifyDiv.style.position="absolute";
-        loginFormDiv.style.position="static";
-        signUpFormDiv.classList.remove("slideInRight");
-        verifyDiv.classList.remove("slideInRight");
-    })
-    
 
 /*modalbox close button which reset all the classes*/
 var closeBtn=document.querySelector(".closeBtn");
 closeBtn.addEventListener('click',()=>{
     loginFormDiv.className="";
     signUpFormDiv.className="";
-    verifyDiv.className="";
 })
